@@ -1,6 +1,6 @@
 # React Pikaday Component
 
-> Tiny universal wrapper around [Pikaday.js](https://github.com/dbushell/Pikaday) datepicker.
+> Universal React component wrapper around [Pikaday.js](https://github.com/dbushell/Pikaday) datepicker.
 
 ## Install
 
