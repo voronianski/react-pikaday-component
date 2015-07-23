@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import assign from 'object-assign';
 
 let Pikaday;
 if ('undefined' !== typeof window) {
@@ -40,7 +41,7 @@ class ReactPikadayComponent extends React.Component {
         let el = React.findDOMNode(this.refs.pikaday);
         let { requestChange } = this._getValueLink(this.props);
         let { value, onChange, valueLink, ...pikadayOptions } = this.props;
-        let options = Object.assign({}, pikadayOptions, {
+        let options = assign({}, pikadayOptions, {
             field: el,
             onSelect: requestChange
         });
