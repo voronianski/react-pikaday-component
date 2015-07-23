@@ -1,0 +1,32 @@
+{
+  "name": "react-pikaday-component",
+  "version": "0.1.0",
+  "description": "React wrapper around Pikaday.js",
+  "main": "lib/ReactPikadayComponent.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "rm -rf ./lib && babel src -d lib --stage 0",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "datepicker",
+    "isomorphic",
+    "universal",
+    "pikaday"
+  ],
+  "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^0.13.3",
+    "pikaday": "^1.3.3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.3"
+  }
+}
