@@ -1,0 +1,18 @@
+{
+  "main": "app.js",
+  "scripts": {
+    "start": "../node_modules/watchify/bin/cmd.js . -o bundle.js -v -d"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "stage": 0
+        }
+      ]
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

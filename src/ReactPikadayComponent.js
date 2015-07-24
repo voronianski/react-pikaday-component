@@ -14,6 +14,9 @@ class ReactPikadayComponent extends React.Component {
             value: PropTypes.instanceOf(Date),
             requestChange: PropTypes.func.isRequired
         })
+
+        // see Pikaday options at https://github.com/dbushell/Pikaday#configuration
+        // except `onSelect` and `field`
     }
 
     _getValueLink(props) {
