@@ -67,7 +67,7 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { className, disabled, placeholder } = this.props;
+        const { className, disabled, placeholder, readOnly } = this.props;
 
         return (
             <input
@@ -76,6 +76,7 @@ class ReactPikadayComponent extends React.Component {
                 className={className}
                 placeholder={placeholder}
                 disabled={disabled}
+                readOnly={readOnly}
             />
         );
     }
