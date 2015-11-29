@@ -1,13 +1,13 @@
 {
   "name": "react-pikaday-component",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React wrapper around Pikaday.js",
   "main": "lib/ReactPikadayComponent.js",
   "directories": {
     "example": "example"
   },
   "scripts": {
-    "build": "rm -rf ./lib && babel src -d lib --stage 0",
+    "build": "rm -rf ./lib && babel src -d lib",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -26,11 +26,14 @@
     "pikaday": "^1.3.3"
   },
   "devDependencies": {
-    "babel": "^5.8.3",
-    "babelify": "^6.1.3",
+    "babel-cli": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "babelify": "^7.2.0",
     "basscss": "^7.0.2",
-    "browserify": "^11.0.0",
-    "watchify": "^3.3.0"
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
   },
   "dependencies": {
     "object-assign": "^4.0.1"

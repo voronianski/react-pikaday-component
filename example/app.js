@@ -1,7 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import DatePicker from '../src/ReactPikadayComponent';
 
 class App extends React.Component {
+    constructor() {
+        super();
+    }
+
     state = {}
 
     onDateChange(date) {
@@ -32,7 +37,7 @@ class App extends React.Component {
     }
 }
 
-React.render(
+ReactDOM.render(
     <App />,
     document.getElementById('app')
 );
