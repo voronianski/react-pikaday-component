@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import assign from 'object-assign';
 
 let Pikaday;
@@ -33,7 +34,7 @@ class ReactPikadayComponent extends React.Component {
         if (newTime !== prevTime) {
             if (isNaN(newTime)) {
                 // workaround for pikaday not clearing value when date set to false
-                let el = React.findDOMNode(this.refs.pikaday);
+                let el = ReactDOM.findDOMNode(this.refs.pikaday);
                 el.value = '';
             }
             this._picker.setDate(newDate, true); // not trigger onSelect
@@ -41,7 +42,7 @@ class ReactPikadayComponent extends React.Component {
     }
 
     _setupPikaday() {
-        let el = React.findDOMNode(this.refs.pikaday);
+        let el = ReactDOM.findDOMNode(this.refs.pikaday);
         let { requestChange } = this._getValueLink(this.props);
         let { value, onChange, valueLink, ...pikadayOptions } = this.props;
         let options = assign({}, pikadayOptions, {
