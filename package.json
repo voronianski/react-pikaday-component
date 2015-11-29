@@ -33,6 +33,6 @@
     "watchify": "^3.3.0"
   },
   "dependencies": {
-    "object-assign": "^3.0.0"
+    "object-assign": "^4.0.1"
   }
 }
