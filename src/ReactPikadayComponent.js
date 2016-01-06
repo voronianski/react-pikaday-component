@@ -67,14 +67,26 @@ class ReactPikadayComponent extends React.Component {
         this._setDateIfChanged(newDate, lastDate);
     }
 
+    componentDidUpdate(prevProps) {
+        // update if container is set
+        if (!prevProps.container && this.props.container) {
+            var newDate = this._getValueLink(this.props).value;
+            var lastDate = this._getValueLink(prevProps).value;
+            this._picker.destroy();
+            this._setupPikaday();
+            this._setDateIfChanged(newDate, lastDate);
+        }
+    }
+
     render() {
-        const { className, disabled, placeholder, readOnly } = this.props;
+        const { className, disabled, placeholder, readOnly, style } = this.props;
 
         return (
             <input
                 type="text"
                 ref="pikaday"
                 className={className}
+                style={style}
                 placeholder={placeholder}
                 disabled={disabled}
                 readOnly={readOnly}
