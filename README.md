@@ -2,7 +2,7 @@
 
 [![npm version](http://badge.fury.io/js/react-pikaday-component.svg)](http://badge.fury.io/js/react-pikaday-component)
 [![Dependency Status](http://david-dm.org/voronianski/react-pikaday-component.svg)](http://david-dm.org/voronianski/react-pikaday-component)
-<!-- [![Download Count](http://img.shields.io/npm/dm/react-pikaday-component.svg?style=flat)](http://www.npmjs.com/package/react-pikaday-component) -->
+[![Download Count](http://img.shields.io/npm/dm/react-pikaday-component.svg?style=flat)](http://www.npmjs.com/package/react-pikaday-component)
 
 > Universal React component wrapper around [Pikaday.js](https://github.com/dbushell/Pikaday) datepicker.
 
