@@ -11,7 +11,7 @@
 ## Install
 
 ```bash
-npm install react-pikaday-component --save
+npm install react react-dom pikaday react-pikaday-component --save
 ```
 
 ## Usage
