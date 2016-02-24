@@ -18,33 +18,35 @@ npm install react react-dom pikaday react-pikaday-component --save
 
 ```javascript
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Pikaday from 'pikaday';
 import DatePicker from 'react-pikaday-component';
 
 class App extends React.Component {
-    state = {}
+  state = {}
 
-    onDateChange(date) {
-        this.setState({ date });
-    }
+  onDateChange(date) {
+    this.setState({ date });
+  }
 
-    render() {
-        const { date } = this.state;
+  render() {
+    const { date } = this.state;
 
-        return (
-            <div>
-                <DatePicker 
-                    placeholder="Select Date"
-                    format="YYYY/MM/DD"
-                    maxDate={new Date('2016-07-26')}
-                    value={new Date(date)}
-                    onChange={::this.onDateChange}
-                />
-            </div>
-        );
-    }
+    return (
+      <div>
+        <DatePicker 
+            placeholder="Select Date"
+            format="YYYY/MM/DD"
+            maxDate={new Date('2016-07-26')}
+            value={new Date(date)}
+            onChange={::this.onDateChange}
+        />
+    </div>
+    );
+  }
 }
 
-React.render(
+ReactDOM.render(
     <App />,
     document.getElementById('example')
 );
