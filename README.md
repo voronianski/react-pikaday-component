@@ -19,7 +19,6 @@ npm install react react-dom pikaday react-pikaday-component --save
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Pikaday from 'pikaday';
 import DatePicker from 'react-pikaday-component';
 
 class App extends React.Component {
