@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-import assign from 'object-assign';
 
 let Pikaday;
 if ('undefined' !== typeof window) {
@@ -20,49 +18,16 @@ class ReactPikadayComponent extends React.Component {
         // except `onSelect` and `field`
     }
 
-    _getValueLink(props) {
-        return props.valueLink || {
-            value: props.value,
-            requestChange: props.onChange
-        };
-    }
-
-    _setDateIfChanged(newDate, prevDate) {
-        var newTime = newDate ? newDate.getTime() : null;
-        var prevTime = prevDate ? prevDate.getTime() : null;
-
-        if (newTime !== prevTime) {
-            if (isNaN(newTime)) {
-                // workaround for pikaday not clearing value when date set to false
-                let el = ReactDOM.findDOMNode(this.refs.pikaday);
-                el.value = '';
-            }
-            this._picker.setDate(newDate, true); // not trigger onSelect
-        }
-    }
-
-    _setupPikaday() {
-        let el = ReactDOM.findDOMNode(this.refs.pikaday);
-        let { requestChange } = this._getValueLink(this.props);
-        let { value, onChange, valueLink, ...pikadayOptions } = this.props;
-        let options = assign({}, pikadayOptions, {
-            field: el,
-            onSelect: requestChange
-        });
-
-        this._picker = new Pikaday(options);
-    }
-
     componentDidMount() {
-        let { value } = this._getValueLink(this.props);
+        const { value } = this._getValueLink(this.props);
         this._setupPikaday();
 
         this._setDateIfChanged(value);
     }
 
     componentWillReceiveProps(nextProps) {
-        let newDate = this._getValueLink(nextProps).value;
-        let lastDate = this._getValueLink(this.props).value;
+        const newDate = this._getValueLink(nextProps).value;
+        const lastDate = this._getValueLink(this.props).value;
 
         this._setDateIfChanged(newDate, lastDate);
     }
@@ -70,9 +35,9 @@ class ReactPikadayComponent extends React.Component {
     componentDidUpdate(prevProps) {
         // update if container is set
         if (!prevProps.container && this.props.container) {
-            var newDate = this._getValueLink(this.props).value;
-            var lastDate = this._getValueLink(prevProps).value;
-            this._picker.destroy();
+            const newDate = this._getValueLink(this.props).value;
+            const lastDate = this._getValueLink(prevProps).value;
+            this.pikaday.destroy();
             this._setupPikaday();
             this._setDateIfChanged(newDate, lastDate);
         }
@@ -92,6 +57,39 @@ class ReactPikadayComponent extends React.Component {
                 readOnly={readOnly}
             />
         );
+    }
+
+    _getValueLink(props) {
+        return props.valueLink || {
+            value: props.value,
+            requestChange: props.onChange
+        };
+    }
+
+    _setupPikaday() {
+        const el = this.refs.pikaday;
+        const { requestChange } = this._getValueLink(this.props);
+        const { value, onChange, valueLink, ...pikadayOptions } = this.props; // eslint-disable-line no-unused-vars
+        const options = Object.assign({}, pikadayOptions, {
+            field: el,
+            onSelect: requestChange
+        });
+
+        this.pikaday = new Pikaday(options);
+    }
+
+    _setDateIfChanged(newDate, prevDate) {
+        const newTime = newDate ? newDate.getTime() : null;
+        const prevTime = prevDate ? prevDate.getTime() : null;
+
+        if (newTime !== prevTime) {
+            if (isNaN(newTime)) {
+                // workaround for pikaday not clearing value when date set to false
+                const el = this.refs.pikaday;
+                el.value = '';
+            }
+            this.pikaday.setDate(newDate, true); // not trigger onSelect
+        }
     }
 }
 

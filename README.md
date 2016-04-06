@@ -1,17 +1,16 @@
 # React Pikaday Component
 
 [![npm version](http://badge.fury.io/js/react-pikaday-component.svg)](http://badge.fury.io/js/react-pikaday-component)
-[![Dependency Status](http://david-dm.org/voronianski/react-pikaday-component.svg)](http://david-dm.org/voronianski/react-pikaday-component)
 [![Download Count](http://img.shields.io/npm/dm/react-pikaday-component.svg?style=flat)](http://www.npmjs.com/package/react-pikaday-component)
 
 > Universal React component wrapper around [Pikaday.js](https://github.com/dbushell/Pikaday) datepicker.
 
-<img src="https://dl.dropboxusercontent.com/u/100463011/react-pikaday-component.gif" width="500" />
+<img src="https://dl.dropboxusercontent.com/u/100463011/react-pikaday-component.gif" width="600" />
 
 ## Install
 
 ```bash
-npm install react react-dom pikaday react-pikaday-component --save
+npm install react pikaday react-pikaday-component --save
 ```
 
 ## Usage
@@ -22,7 +21,13 @@ import ReactDOM from 'react-dom';
 import DatePicker from 'react-pikaday-component';
 
 class App extends React.Component {
-  state = {}
+  constructor() {
+    super();
+
+    this.state = {
+      date: null
+    };
+  }
 
   onDateChange(date) {
     this.setState({ date });
@@ -36,7 +41,7 @@ class App extends React.Component {
         <DatePicker 
             placeholder="Select Date"
             format="YYYY/MM/DD"
-            maxDate={new Date('2016-07-26')}
+            maxDate={new Date('2020-07-26')}
             value={new Date(date)}
             onChange={::this.onDateChange}
         />
