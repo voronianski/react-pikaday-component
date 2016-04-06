@@ -1,6 +1,6 @@
 {
   "name": "react-pikaday-component",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "React component wrapper around Pikaday.js",
   "main": "index.js",
   "directories": {
