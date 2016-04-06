@@ -1,5 +1,6 @@
-# React Pikaday Component
+# ReactPikadayComponent
 
+[![build status](http://img.shields.io/travis/voronianski/react-pikaday-component.svg?style=flat)](https://travis-ci.org/voronianski/react-pikaday-component)
 [![npm version](http://badge.fury.io/js/react-pikaday-component.svg)](http://badge.fury.io/js/react-pikaday-component)
 [![Download Count](http://img.shields.io/npm/dm/react-pikaday-component.svg?style=flat)](http://www.npmjs.com/package/react-pikaday-component)
 
@@ -24,9 +25,7 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      date: null
-    };
+    this.state = {};
   }
 
   onDateChange(date) {
