@@ -8,8 +8,8 @@ const webpackUMDExternal = require('webpack-umd-external');
 
 const pluginsList = [];
 const outputFileName = env === 'production' ?
-    'react-star-rating-component.min.js' :
-    'react-star-rating-component.js';
+    'react-pikaday-component.min.js' :
+    'react-pikaday-component.js';
 
 if (env === 'production') {
     pluginsList.push(
