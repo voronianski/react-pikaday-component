@@ -43,6 +43,10 @@ class ReactPikadayComponent extends React.Component {
         }
     }
 
+    componentWillUnmount(){
+        this.pikaday.destroy();
+    }
+
     render() {
         const { className, disabled, placeholder, readOnly, style } = this.props;
 
