@@ -43,7 +43,7 @@ class ReactPikadayComponent extends React.Component {
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.pikaday.destroy();
     }
 
