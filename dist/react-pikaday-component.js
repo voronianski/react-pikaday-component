@@ -103,8 +103,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            var value = _getValueLink2.value;
 
-	            this._setupPikaday();
 
+	            this._setupPikaday();
 	            this._setDateIfChanged(value);
 	        }
 	    }, {
@@ -114,6 +114,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var lastDate = this._getValueLink(this.props).value;
 
 	            this._setDateIfChanged(newDate, lastDate);
+	            this._setMinDateIfChanged(nextProps.minDate, this.props.minDate);
+	            this._setMaxDateIfChanged(nextProps.maxDate, this.props.maxDate);
 	        }
 	    }, {
 	        key: 'componentDidUpdate',
@@ -122,6 +124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (!prevProps.container && this.props.container) {
 	                var newDate = this._getValueLink(this.props).value;
 	                var lastDate = this._getValueLink(prevProps).value;
+
 	                this.pikaday.destroy();
 	                this._setupPikaday();
 	                this._setDateIfChanged(newDate, lastDate);

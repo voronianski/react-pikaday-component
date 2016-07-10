@@ -25,8 +25,8 @@ class ReactPikadayComponent extends React.Component {
 
     componentDidMount() {
         const { value } = this._getValueLink(this.props);
-        this._setupPikaday();
 
+        this._setupPikaday();
         this._setDateIfChanged(value);
     }
 
@@ -35,6 +35,8 @@ class ReactPikadayComponent extends React.Component {
         const lastDate = this._getValueLink(this.props).value;
 
         this._setDateIfChanged(newDate, lastDate);
+        this._setMinDateIfChanged(nextProps.minDate, this.props.minDate);
+        this._setMaxDateIfChanged(nextProps.maxDate, this.props.maxDate);
     }
 
     componentDidUpdate(prevProps) {
@@ -42,6 +44,7 @@ class ReactPikadayComponent extends React.Component {
         if (!prevProps.container && this.props.container) {
             const newDate = this._getValueLink(this.props).value;
             const lastDate = this._getValueLink(prevProps).value;
+
             this.pikaday.destroy();
             this._setupPikaday();
             this._setDateIfChanged(newDate, lastDate);
