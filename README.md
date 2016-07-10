@@ -61,7 +61,7 @@ ReactDOM.render(
 - `onChange`
 - `valueLink`
 - [Pikaday configuration options](https://github.com/dbushell/Pikaday#configuration) (except `onSelect` and `field`)
-- other input attributes like `className`, `placeholder`, `disabled` and `readOnly`
+- other input attributes like `className`, `name`, `placeholder`, `disabled` and `readOnly`
 
 ---
 

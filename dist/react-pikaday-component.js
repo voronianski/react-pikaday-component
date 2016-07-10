@@ -128,10 +128,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this.pikaday.destroy();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props;
 	            var className = _props.className;
+	            var name = _props.name;
 	            var disabled = _props.disabled;
 	            var placeholder = _props.placeholder;
 	            var readOnly = _props.readOnly;
@@ -141,6 +147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return _react2.default.createElement('input', {
 	                type: 'text',
 	                ref: 'pikaday',
+	                name: name,
 	                className: className,
 	                style: style,
 	                placeholder: placeholder,
@@ -202,6 +209,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	ReactPikadayComponent.propTypes = {
 	    value: _react.PropTypes.instanceOf(Date),
 	    onChange: _react.PropTypes.func,
+	    disabled: _react.PropTypes.string,
+	    placeholder: _react.PropTypes.string,
+	    readOnly: _react.PropTypes.string,
+	    name: _react.PropTypes.string,
+	    style: _react.PropTypes.object,
 	    valueLink: _react.PropTypes.shape({
 	        value: _react.PropTypes.instanceOf(Date),
 	        requestChange: _react.PropTypes.func.isRequired

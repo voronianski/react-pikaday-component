@@ -9,6 +9,11 @@ class ReactPikadayComponent extends React.Component {
     static propTypes = {
         value: PropTypes.instanceOf(Date),
         onChange: PropTypes.func,
+        disabled: PropTypes.string,
+        placeholder: PropTypes.string,
+        readOnly: PropTypes.string,
+        name: PropTypes.string,
+        style: PropTypes.object,
         valueLink: PropTypes.shape({
             value: PropTypes.instanceOf(Date),
             requestChange: PropTypes.func.isRequired
@@ -48,12 +53,13 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { className, disabled, placeholder, readOnly, style } = this.props;
+        const { className, name, disabled, placeholder, readOnly, style } = this.props;
 
         return (
             <input
                 type="text"
                 ref="pikaday"
+                name={name}
                 className={className}
                 style={style}
                 placeholder={placeholder}
