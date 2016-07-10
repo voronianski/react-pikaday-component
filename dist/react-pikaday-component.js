@@ -189,16 +189,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_setDateIfChanged',
 	        value: function _setDateIfChanged(newDate, prevDate) {
+	            var _this2 = this;
+
+	            this._setDate(newDate, prevDate, function (newTime) {
+	                if (isNaN(newTime)) {
+	                    // workaround for pikaday not clearing value when date set to false
+	                    var el = _this2.refs.pikaday;
+	                    el.value = '';
+	                }
+	                _this2.pikaday.setDate(newDate, true); // not trigger onSelect
+	            });
+	        }
+	    }, {
+	        key: '_setMinDateIfChanged',
+	        value: function _setMinDateIfChanged(newDate, prevDate) {
+	            var _this3 = this;
+
+	            this._setDate(newDate, prevDate, function () {
+	                _this3.pikaday.setMinDate(newDate);
+	            });
+	        }
+	    }, {
+	        key: '_setMaxDateIfChanged',
+	        value: function _setMaxDateIfChanged(newDate, prevDate) {
+	            var _this4 = this;
+
+	            this._setDate(newDate, prevDate, function () {
+	                _this4.pikaday.setMaxDate(newDate);
+	            });
+	        }
+	    }, {
+	        key: '_setDate',
+	        value: function _setDate(newDate, prevDate, setter) {
 	            var newTime = newDate ? newDate.getTime() : null;
 	            var prevTime = prevDate ? prevDate.getTime() : null;
 
 	            if (newTime !== prevTime) {
-	                if (isNaN(newTime)) {
-	                    // workaround for pikaday not clearing value when date set to false
-	                    var el = this.refs.pikaday;
-	                    el.value = '';
-	                }
-	                this.pikaday.setDate(newDate, true); // not trigger onSelect
+	                setter(newTime);
 	            }
 	        }
 	    }]);

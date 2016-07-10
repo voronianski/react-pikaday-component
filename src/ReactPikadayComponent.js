@@ -89,16 +89,34 @@ class ReactPikadayComponent extends React.Component {
     }
 
     _setDateIfChanged(newDate, prevDate) {
-        const newTime = newDate ? newDate.getTime() : null;
-        const prevTime = prevDate ? prevDate.getTime() : null;
-
-        if (newTime !== prevTime) {
+        this._setDate(newDate, prevDate, newTime => {
             if (isNaN(newTime)) {
                 // workaround for pikaday not clearing value when date set to false
                 const el = this.refs.pikaday;
                 el.value = '';
             }
             this.pikaday.setDate(newDate, true); // not trigger onSelect
+        });
+    }
+
+    _setMinDateIfChanged(newDate, prevDate) {
+        this._setDate(newDate, prevDate, () => {
+            this.pikaday.setMinDate(newDate);
+        });
+    }
+
+    _setMaxDateIfChanged(newDate, prevDate) {
+        this._setDate(newDate, prevDate, () => {
+            this.pikaday.setMaxDate(newDate);
+        });
+    }
+
+    _setDate(newDate, prevDate, setter) {
+        const newTime = newDate ? newDate.getTime() : null;
+        const prevTime = prevDate ? prevDate.getTime() : null;
+
+        if (newTime !== prevTime) {
+            setter(newTime);
         }
     }
 }
