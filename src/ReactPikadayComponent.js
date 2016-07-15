@@ -9,9 +9,9 @@ class ReactPikadayComponent extends React.Component {
     static propTypes = {
         value: PropTypes.instanceOf(Date),
         onChange: PropTypes.func,
-        disabled: PropTypes.string,
+        disabled: PropTypes.bool,
         placeholder: PropTypes.string,
-        readOnly: PropTypes.string,
+        readOnly: PropTypes.bool,
         name: PropTypes.string,
         style: PropTypes.object,
         valueLink: PropTypes.shape({
