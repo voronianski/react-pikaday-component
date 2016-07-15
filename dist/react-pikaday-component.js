@@ -239,9 +239,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	ReactPikadayComponent.propTypes = {
 	    value: _react.PropTypes.instanceOf(Date),
 	    onChange: _react.PropTypes.func,
-	    disabled: _react.PropTypes.string,
+	    disabled: _react.PropTypes.bool,
 	    placeholder: _react.PropTypes.string,
-	    readOnly: _react.PropTypes.string,
+	    readOnly: _react.PropTypes.bool,
 	    name: _react.PropTypes.string,
 	    style: _react.PropTypes.object,
 	    valueLink: _react.PropTypes.shape({
