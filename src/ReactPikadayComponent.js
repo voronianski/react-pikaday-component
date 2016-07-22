@@ -7,6 +7,7 @@ if ('undefined' !== typeof window) {
 
 class ReactPikadayComponent extends React.Component {
     static propTypes = {
+        id: PropTypes.string,
         value: PropTypes.instanceOf(Date),
         onChange: PropTypes.func,
         disabled: PropTypes.bool,
@@ -56,10 +57,11 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { className, name, disabled, placeholder, readOnly, style } = this.props;
+        const { id, className, name, disabled, placeholder, readOnly, style } = this.props;
 
         return (
             <input
+                id={id}
                 type="text"
                 ref="pikaday"
                 name={name}
