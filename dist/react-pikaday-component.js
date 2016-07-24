@@ -139,6 +139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props;
+	            var id = _props.id;
 	            var className = _props.className;
 	            var name = _props.name;
 	            var disabled = _props.disabled;
@@ -148,6 +149,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	            return _react2.default.createElement('input', {
+	                id: id,
 	                type: 'text',
 	                ref: 'pikaday',
 	                name: name,
@@ -237,6 +239,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react2.default.Component);
 
 	ReactPikadayComponent.propTypes = {
+	    id: _react.PropTypes.string,
 	    value: _react.PropTypes.instanceOf(Date),
 	    onChange: _react.PropTypes.func,
 	    disabled: _react.PropTypes.bool,
