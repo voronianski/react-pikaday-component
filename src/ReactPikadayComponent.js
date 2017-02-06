@@ -15,6 +15,7 @@ class ReactPikadayComponent extends React.Component {
         readOnly: PropTypes.bool,
         name: PropTypes.string,
         style: PropTypes.object,
+        tabIndex: PropTypes.number,
         valueLink: PropTypes.shape({
             value: PropTypes.instanceOf(Date),
             requestChange: PropTypes.func.isRequired
@@ -57,7 +58,7 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { id, className, name, disabled, placeholder, readOnly, style } = this.props;
+        const { id, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
 
         return (
             <input
@@ -70,6 +71,7 @@ class ReactPikadayComponent extends React.Component {
                 placeholder={placeholder}
                 disabled={disabled}
                 readOnly={readOnly}
+                tabIndex={tabIndex}
             />
         );
     }

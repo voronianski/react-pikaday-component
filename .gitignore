@@ -3,5 +3,4 @@ node_modules
 *.log
 *.map
 
-index.js
 example/bundle.js
