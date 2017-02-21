@@ -78,6 +78,7 @@ var ReactPikadayComponent = function (_React$Component) {
         value: function render() {
             var _props = this.props,
                 id = _props.id,
+                type = _props.type,
                 className = _props.className,
                 name = _props.name,
                 tabIndex = _props.tabIndex,
@@ -89,7 +90,7 @@ var ReactPikadayComponent = function (_React$Component) {
 
             return _react2.default.createElement('input', {
                 id: id,
-                type: 'text',
+                type: type,
                 ref: 'pikaday',
                 name: name,
                 className: className,
@@ -179,6 +180,7 @@ var ReactPikadayComponent = function (_React$Component) {
 
 ReactPikadayComponent.propTypes = {
     id: _react.PropTypes.string,
+    type: _react.PropTypes.string,
     value: _react.PropTypes.instanceOf(Date),
     onChange: _react.PropTypes.func,
     disabled: _react.PropTypes.bool,
@@ -194,6 +196,9 @@ ReactPikadayComponent.propTypes = {
 
     // see Pikaday options at https://github.com/dbushell/Pikaday#configuration
     // except `onSelect` and `field`
+};
+ReactPikadayComponent.defaultProps = {
+    type: 'text'
 };
 exports.default = ReactPikadayComponent;
 module.exports = exports['default'];
