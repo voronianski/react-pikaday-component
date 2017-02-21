@@ -8,6 +8,7 @@ if ('undefined' !== typeof window) {
 class ReactPikadayComponent extends React.Component {
     static propTypes = {
         id: PropTypes.string,
+        type: PropTypes.string,
         value: PropTypes.instanceOf(Date),
         onChange: PropTypes.func,
         disabled: PropTypes.bool,
@@ -23,6 +24,10 @@ class ReactPikadayComponent extends React.Component {
 
         // see Pikaday options at https://github.com/dbushell/Pikaday#configuration
         // except `onSelect` and `field`
+    }
+
+    static defaultProps = {
+        type: 'text'
     }
 
     componentDidMount() {
@@ -58,12 +63,12 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { id, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
+        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
 
         return (
             <input
                 id={id}
-                type="text"
+                type={type}
                 ref="pikaday"
                 name={name}
                 className={className}
