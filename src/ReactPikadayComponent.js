@@ -41,9 +41,9 @@ class ReactPikadayComponent extends React.Component {
         const newDate = this._getValueLink(nextProps).value;
         const lastDate = this._getValueLink(this.props).value;
 
-        this._setDateIfChanged(newDate, lastDate);
         this._setMinDateIfChanged(nextProps.minDate, this.props.minDate);
         this._setMaxDateIfChanged(nextProps.maxDate, this.props.maxDate);
+        this._setDateIfChanged(newDate, lastDate);
     }
 
     componentDidUpdate(prevProps) {
