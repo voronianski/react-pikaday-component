@@ -107,9 +107,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var newDate = this._getValueLink(nextProps).value;
 	            var lastDate = this._getValueLink(this.props).value;
 
-	            this._setDateIfChanged(newDate, lastDate);
 	            this._setMinDateIfChanged(nextProps.minDate, this.props.minDate);
 	            this._setMaxDateIfChanged(nextProps.maxDate, this.props.maxDate);
+	            this._setDateIfChanged(newDate, lastDate);
 	        }
 	    }, {
 	        key: 'componentDidUpdate',
@@ -134,6 +134,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: function render() {
 	            var _props = this.props,
 	                id = _props.id,
+	                type = _props.type,
 	                className = _props.className,
 	                name = _props.name,
 	                tabIndex = _props.tabIndex,
@@ -145,7 +146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            return _react2.default.createElement('input', {
 	                id: id,
-	                type: 'text',
+	                type: type,
 	                ref: 'pikaday',
 	                name: name,
 	                className: className,
@@ -235,6 +236,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	ReactPikadayComponent.propTypes = {
 	    id: _react.PropTypes.string,
+	    type: _react.PropTypes.string,
 	    value: _react.PropTypes.instanceOf(Date),
 	    onChange: _react.PropTypes.func,
 	    disabled: _react.PropTypes.bool,
@@ -250,6 +252,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // see Pikaday options at https://github.com/dbushell/Pikaday#configuration
 	    // except `onSelect` and `field`
+	};
+	ReactPikadayComponent.defaultProps = {
+	    type: 'text'
 	};
 	exports.default = ReactPikadayComponent;
 	module.exports = exports['default'];
