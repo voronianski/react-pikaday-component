@@ -61,6 +61,7 @@ ReactDOM.render(
 - `onChange`
 - `valueLink`
 - `tabIndex`
+- `container` -- if `true`, use Pikaday in container mode inside this component and don't render text field at all; if passed a React component, its corresponding DOM node is used as a container; otherwise, option value is directly passed to Pikaday.
 - [Pikaday configuration options](https://github.com/dbushell/Pikaday#configuration) (except `onSelect` and `field`)
 - other input attributes like `className`, `name`, `placeholder`, `disabled` and `readOnly`
 
