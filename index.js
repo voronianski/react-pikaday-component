@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _pick = require('lodash/pick');
+
+var _pick2 = _interopRequireDefault(_pick);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -77,29 +81,27 @@ var ReactPikadayComponent = function (_React$Component) {
         key: 'render',
         value: function render() {
             var _props = this.props,
-                id = _props.id,
                 type = _props.type,
-                className = _props.className,
-                name = _props.name,
-                tabIndex = _props.tabIndex,
-                disabled = _props.disabled,
-                placeholder = _props.placeholder,
-                readOnly = _props.readOnly,
-                style = _props.style;
+                container = _props.container;
 
+            var rest = (0, _pick2.default)(this.props, ['id', 'className', 'name', 'tabIndex', 'disabled', 'placeholder', 'readOnly', 'style']);
 
-            return _react2.default.createElement('input', {
-                id: id,
+            if (container === true) {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('input', _extends({
+                        type: 'hidden',
+                        ref: 'pikaday'
+                    }, rest)),
+                    _react2.default.createElement('div', { ref: 'pikadayContainer' })
+                );
+            }
+
+            return _react2.default.createElement('input', _extends({
                 type: type,
-                ref: 'pikaday',
-                name: name,
-                className: className,
-                style: style,
-                placeholder: placeholder,
-                disabled: disabled,
-                readOnly: readOnly,
-                tabIndex: tabIndex
-            });
+                ref: 'pikaday'
+            }, rest));
         }
     }, {
         key: '_getValueLink',
@@ -121,15 +123,20 @@ var ReactPikadayComponent = function (_React$Component) {
                 value = _props2.value,
                 onChange = _props2.onChange,
                 valueLink = _props2.valueLink,
-                pikadayOptions = _objectWithoutProperties(_props2, ['value', 'onChange', 'valueLink']); // eslint-disable-line no-unused-vars
-
+                container = _props2.container,
+                pikadayOptions = _objectWithoutProperties(_props2, ['value', 'onChange', 'valueLink', 'container']); // eslint-disable-line no-unused-vars
 
             var options = _extends({}, pikadayOptions, {
                 field: el,
+                container: container === true ? this.refs.pikadayContainer : container && container.getDOMNode ? container.getDOMNode() : container,
                 onSelect: requestChange
             });
 
             this.pikaday = new Pikaday(options);
+
+            if (container === true) {
+                this.pikaday.show();
+            }
         }
     }, {
         key: '_setDateIfChanged',

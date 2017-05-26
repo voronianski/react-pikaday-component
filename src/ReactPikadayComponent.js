@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import pick from 'lodash/pick';
 
 let Pikaday;
 if ('undefined' !== typeof window) {
@@ -63,20 +64,27 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
+        const { type, container } = this.props;
+        const rest = pick(this.props, ['id', 'className', 'name', 'tabIndex', 'disabled', 'placeholder', 'readOnly', 'style']);
+
+        if (container === true) {
+            return (
+                <div>
+                    <input
+                        type="hidden"
+                        ref="pikaday"
+                        {...rest}
+                    />
+                    <div ref="pikadayContainer"></div>
+                </div>
+            );
+        }
 
         return (
             <input
-                id={id}
                 type={type}
                 ref="pikaday"
-                name={name}
-                className={className}
-                style={style}
-                placeholder={placeholder}
-                disabled={disabled}
-                readOnly={readOnly}
-                tabIndex={tabIndex}
+                {...rest}
             />
         );
     }
@@ -91,13 +99,20 @@ class ReactPikadayComponent extends React.Component {
     _setupPikaday() {
         const el = this.refs.pikaday;
         const { requestChange } = this._getValueLink(this.props);
-        const { value, onChange, valueLink, ...pikadayOptions } = this.props; // eslint-disable-line no-unused-vars
+        const { value, onChange, valueLink, container, ...pikadayOptions } = this.props; // eslint-disable-line no-unused-vars
+
         const options = Object.assign({}, pikadayOptions, {
             field: el,
+            container: container === true ? this.refs.pikadayContainer :
+                container && container.getDOMNode ? container.getDOMNode() : container,
             onSelect: requestChange
         });
 
         this.pikaday = new Pikaday(options);
+
+        if (container === true) {
+            this.pikaday.show();
+        }
     }
 
     _setDateIfChanged(newDate, prevDate) {
