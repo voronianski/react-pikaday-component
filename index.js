@@ -85,7 +85,8 @@ var ReactPikadayComponent = function (_React$Component) {
                 disabled = _props.disabled,
                 placeholder = _props.placeholder,
                 readOnly = _props.readOnly,
-                style = _props.style;
+                style = _props.style,
+                _onChange = _props.onChange;
 
 
             return _react2.default.createElement('input', {
@@ -98,7 +99,10 @@ var ReactPikadayComponent = function (_React$Component) {
                 placeholder: placeholder,
                 disabled: disabled,
                 readOnly: readOnly,
-                tabIndex: tabIndex
+                tabIndex: tabIndex,
+                onChange: function onChange(e) {
+                    return e.target.value === '' ? _onChange(undefined) : null;
+                }
             });
         }
     }, {

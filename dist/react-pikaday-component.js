@@ -52,7 +52,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -141,7 +141,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                disabled = _props.disabled,
 	                placeholder = _props.placeholder,
 	                readOnly = _props.readOnly,
-	                style = _props.style;
+	                style = _props.style,
+	                _onChange = _props.onChange;
 
 
 	            return _react2.default.createElement('input', {
@@ -154,7 +155,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                placeholder: placeholder,
 	                disabled: disabled,
 	                readOnly: readOnly,
-	                tabIndex: tabIndex
+	                tabIndex: tabIndex,
+	                onChange: function onChange(e) {
+	                    return e.target.value === '' ? _onChange(undefined) : null;
+	                }
 	            });
 	        }
 	    }, {
@@ -259,19 +263,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = ReactPikadayComponent;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;
