@@ -63,7 +63,7 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
+        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style, onChange } = this.props;
 
         return (
             <input
@@ -77,6 +77,7 @@ class ReactPikadayComponent extends React.Component {
                 disabled={disabled}
                 readOnly={readOnly}
                 tabIndex={tabIndex}
+                onChange={(e) => (e.target.value === '' ? onChange(undefined) : null)}
             />
         );
     }
