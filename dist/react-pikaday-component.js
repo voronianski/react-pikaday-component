@@ -52,7 +52,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -107,9 +107,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var newDate = this._getValueLink(nextProps).value;
 	            var lastDate = this._getValueLink(this.props).value;
 
-	            this._setDateIfChanged(newDate, lastDate);
 	            this._setMinDateIfChanged(nextProps.minDate, this.props.minDate);
 	            this._setMaxDateIfChanged(nextProps.maxDate, this.props.maxDate);
+	            this._setDateIfChanged(newDate, lastDate);
 	        }
 	    }, {
 	        key: 'componentDidUpdate',
@@ -134,18 +134,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: function render() {
 	            var _props = this.props,
 	                id = _props.id,
+	                type = _props.type,
 	                className = _props.className,
 	                name = _props.name,
 	                tabIndex = _props.tabIndex,
 	                disabled = _props.disabled,
 	                placeholder = _props.placeholder,
 	                readOnly = _props.readOnly,
-	                style = _props.style;
+	                style = _props.style,
+	                _onChange = _props.onChange;
 
 
 	            return _react2.default.createElement('input', {
 	                id: id,
-	                type: 'text',
+	                type: type,
 	                ref: 'pikaday',
 	                name: name,
 	                className: className,
@@ -153,7 +155,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                placeholder: placeholder,
 	                disabled: disabled,
 	                readOnly: readOnly,
-	                tabIndex: tabIndex
+	                tabIndex: tabIndex,
+	                onChange: function onChange(e) {
+	                    return e.target.value === '' ? _onChange(undefined) : null;
+	                }
 	            });
 	        }
 	    }, {
@@ -235,6 +240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	ReactPikadayComponent.propTypes = {
 	    id: _react.PropTypes.string,
+	    type: _react.PropTypes.string,
 	    value: _react.PropTypes.instanceOf(Date),
 	    onChange: _react.PropTypes.func,
 	    disabled: _react.PropTypes.bool,
@@ -251,22 +257,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // see Pikaday options at https://github.com/dbushell/Pikaday#configuration
 	    // except `onSelect` and `field`
 	};
+	ReactPikadayComponent.defaultProps = {
+	    type: 'text'
+	};
 	exports.default = ReactPikadayComponent;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

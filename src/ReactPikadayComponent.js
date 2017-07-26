@@ -42,9 +42,9 @@ class ReactPikadayComponent extends React.Component {
         const newDate = this._getValueLink(nextProps).value;
         const lastDate = this._getValueLink(this.props).value;
 
-        this._setDateIfChanged(newDate, lastDate);
         this._setMinDateIfChanged(nextProps.minDate, this.props.minDate);
         this._setMaxDateIfChanged(nextProps.maxDate, this.props.maxDate);
+        this._setDateIfChanged(newDate, lastDate);
     }
 
     componentDidUpdate(prevProps) {
@@ -64,7 +64,7 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
+        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style, onChange } = this.props;
 
         return (
             <input
@@ -78,6 +78,7 @@ class ReactPikadayComponent extends React.Component {
                 disabled={disabled}
                 readOnly={readOnly}
                 tabIndex={tabIndex}
+                onChange={(e) => (e.target.value === '' ? onChange(undefined) : null)}
             />
         );
     }
