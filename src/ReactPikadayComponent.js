@@ -10,7 +10,11 @@ class ReactPikadayComponent extends React.Component {
     static propTypes = {
         id: PropTypes.string,
         type: PropTypes.string,
-        value: PropTypes.instanceOf(Date),
+        value: PropTypes.oneOfType([
+            PropTypes.instanceOf(Date),
+            PropTypes.string
+        ]),
+        required: PropTypes.bool,
         onChange: PropTypes.func,
         disabled: PropTypes.bool,
         placeholder: PropTypes.string,
@@ -64,7 +68,7 @@ class ReactPikadayComponent extends React.Component {
     }
 
     render() {
-        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style } = this.props;
+        const { id, type, className, name, tabIndex, disabled, placeholder, readOnly, style, required } = this.props;
 
         return (
             <input
@@ -78,6 +82,7 @@ class ReactPikadayComponent extends React.Component {
                 disabled={disabled}
                 readOnly={readOnly}
                 tabIndex={tabIndex}
+                required={required}
             />
         );
     }
