@@ -20,6 +20,7 @@ npm install react pikaday react-pikaday-component --save
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DatePicker from 'react-pikaday-component';
+import 'pikaday/css/pikaday.css';
 
 class App extends React.Component {
   constructor() {
